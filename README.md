@@ -67,11 +67,13 @@ mkdir my-foundry-byoaks
 Set-Location my-foundry-byoaks
 azd init `
   -t https://github.com/yiliuTo/azd-foundry-byoaks-template `
+  -b v0.1.0-demo `
   -e <environment-name> `
   .
 ```
 
 Access to the private GitHub repository is required.
+The demo tag pins the exact template revision used for the PM presentation.
 
 `azd init` copies the template, creates the named azd environment, and selects
 it as the current environment. If `-e` is omitted in interactive mode, azd
