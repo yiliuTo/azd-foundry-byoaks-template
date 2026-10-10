@@ -1,0 +1,7 @@
+# azd environment state can contain deployment-specific values.
+.azure/
+
+# Local environment and override files.
+.env
+.env.*
+*.local
