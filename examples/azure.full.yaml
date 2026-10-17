@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+# Legacy fully specified demo contract. Copy to the root azure.yaml; see README.md.
+name: foundry-byoaks
+
+metadata:
+  template: foundry-byoaks@0.1.0-demo
+
+requiredVersions:
+  extensions:
+    azure.ai.projects: 1.0.0-beta.9
+
+infra:
+  provider: microsoft.foundry
+
+services:
+  project:
+    host: azure.ai.project
+    agentHosting:
+      hostingType: ManagedCluster
+      name: primary
+      clusterResourceId: ${AZURE_AKS_CLUSTER_ID}
+      agentSubnetResourceId: ${AZURE_AGENT_SUBNET_ID}
+      hostingManagementIdentityResourceId: ${AZURE_HOSTING_MANAGEMENT_IDENTITY_ID}
+      workloadIdentityResourceId: ${AZURE_HOSTED_AGENTS_WORKLOAD_IDENTITY_ID}
+      storageAccountResourceId: ${AZURE_HOSTED_AGENTS_STORAGE_ID}

@@ -3,8 +3,11 @@
 name: foundry-byoaks
 
 metadata:
-  template: foundry-byoaks@0.1.0-demo
+  template: foundry-byoaks
 
+# This AKS-only design target requires a compatible simplified-onboarding release.
+# The historical demo minimum below does not guarantee that support; see README.md.
+# The legacy seven-field configuration is in examples\azure.full.yaml.
 requiredVersions:
   extensions:
     azure.ai.projects: 1.0.0-beta.9
@@ -16,10 +19,4 @@ services:
   project:
     host: azure.ai.project
     agentHosting:
-      hostingType: ManagedCluster
-      name: primary
       clusterResourceId: ${AZURE_AKS_CLUSTER_ID}
-      agentSubnetResourceId: ${AZURE_AGENT_SUBNET_ID}
-      hostingManagementIdentityResourceId: ${AZURE_HOSTING_MANAGEMENT_IDENTITY_ID}
-      workloadIdentityResourceId: ${AZURE_HOSTED_AGENTS_WORKLOAD_IDENTITY_ID}
-      storageAccountResourceId: ${AZURE_HOSTED_AGENTS_STORAGE_ID}
